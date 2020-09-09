@@ -58,6 +58,78 @@ class BinarySearchTree{
         }
         if(!found) return false;
         return current;
-    }  
+    } 
+    
+    bfs(){
+
+        let q = []
+        let visited = []
+        let node = this.root
+    
+        if(this.root===null){
+            return undefined
+        }
+    
+        q.push(node)
+    
+        while(q.length){
+           node = q.shift()
+           visited.push(node)
+           if(node.left){
+            q.push(node.left)
+           }
+           if (node.right){
+               q.push(node.right)
+           }
+        }
+    
+        return visited
+    }
+
+    dfsPreOrder(){
+        var visisted = []
+        let current = this.root
+        function traverse(node){
+            visisted.push(node)
+            if(node.left){
+                traverse(node.left)
+            }
+            if(node.right){
+                traverse(node.right)
+            }   
+        }
+        traverse(current)
+        return visisted 
+    }
+
+    dfsPostOrder(){
+        let visisted = []
+        let current = this.root 
+        function traverse(node){
+            if(node.left){
+                traverse(node.left)
+            }
+            if(node.right){
+                traverse(node.right)
+            }
+            visisted.push(node)
+        }
+        traverse(current)
+        return visisted
+    }
+
+    dfsInOrder(){
+        let visited = []
+        let current = this.root 
+    
+        function traverse(node){
+            if(node.left) traverse(node.left)
+            visited.push(node)
+            if(node.right) traverse(node.right)
+        }
+        traverse(current)
+        return visited
+    }
+    
 }
 
