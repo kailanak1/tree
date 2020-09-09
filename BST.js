@@ -87,10 +87,10 @@ class BinarySearchTree{
     }
 
     dfsPreOrder(){
-        var visisted = []
+        var visited = []
         let current = this.root
         function traverse(node){
-            visisted.push(node)
+            visited.push(node)
             if(node.left){
                 traverse(node.left)
             }
@@ -99,11 +99,11 @@ class BinarySearchTree{
             }   
         }
         traverse(current)
-        return visisted 
+        return visited
     }
 
     dfsPostOrder(){
-        let visisted = []
+        let visited = []
         let current = this.root 
         function traverse(node){
             if(node.left){
@@ -112,7 +112,7 @@ class BinarySearchTree{
             if(node.right){
                 traverse(node.right)
             }
-            visisted.push(node)
+            visited.push(node)
         }
         traverse(current)
         return visisted
